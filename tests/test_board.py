@@ -42,6 +42,24 @@ def test_drop_piece_raises_on_out_of_range_column():
         board.drop_piece(-1, 1)
 
 
+def test_undo_move_restores_original_state():
+    board = Board()
+    board.drop_piece(2, 1)
+    original_grid = [row[:] for row in board.grid]
+
+    board.drop_piece(2, 2)
+    undone_row = board.undo_move(2)
+
+    assert undone_row == 4
+    assert board.grid == original_grid
+
+
+def test_undo_move_raises_on_empty_column():
+    board = Board()
+    with pytest.raises(ValueError):
+        board.undo_move(0)
+
+
 def test_horizontal_win():
     board = Board()
     for col in range(4):

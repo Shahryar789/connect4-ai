@@ -19,6 +19,13 @@ class Board:
                 self.grid[row][col] = player
                 return row
 
+    def undo_move(self, col):
+        for row in range(self.ROWS):
+            if self.grid[row][col] != 0:
+                self.grid[row][col] = 0
+                return row
+        raise ValueError(f"Column {col} is empty")
+
     def check_win(self, player):
         grid = self.grid
 
