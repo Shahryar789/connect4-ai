@@ -23,8 +23,6 @@ python -m venv .venv
 .venv/Scripts/python.exe -m pytest tests/test_board.py::test_horizontal_win -v
 ```
 
-On this machine, Python is installed at `C:\Users\hussa\AppData\Local\Programs\Python\Python312\python.exe` but is not yet on PATH for new shells — use the full path (or the venv's `python.exe`) if a bare `python` invocation fails with the "Python was not found" App Execution Alias error.
-
 ## Architecture
 
 - `src/connect4/board.py` — `Board` class: the 6-row x 7-column grid, piece dropping (gravity), win detection, valid-move listing, and draw detection. This is the only implemented module so far.
