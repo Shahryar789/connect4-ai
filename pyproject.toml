@@ -7,10 +7,13 @@ name = "connect4-ai"
 version = "0.1.0"
 description = "Connect Four AI demonstrating minimax and alpha-beta pruning"
 requires-python = ">=3.10"
-dependencies = ["numpy>=1.24", "matplotlib>=3.7"]
+dependencies = ["numpy>=1.24", "matplotlib>=3.7", "typer>=0.9"]
 
 [project.optional-dependencies]
 dev = ["pytest>=7.0"]
+
+[project.scripts]
+connect4 = "connect4.cli:app"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/connect4"]
